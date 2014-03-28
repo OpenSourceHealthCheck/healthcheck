@@ -17,3 +17,10 @@ class html_provider_base():
         self.div % content
         '''
         raise NotImplementedError("Your plugin needs to overload this method")
+    
+    def get_passes(self):
+        '''
+        will be called after get_html to see if this repo passes the test for this
+        returns a boolean
+        '''
+        return False
