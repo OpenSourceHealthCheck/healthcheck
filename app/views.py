@@ -2,6 +2,7 @@ from flask import render_template, request, Markup, redirect, url_for
 from app import app
 from github3 import login
 import os
+import plugins
 
 @app.route('/')
 def index():
@@ -51,6 +52,10 @@ def run_from_url(username, reponame):
 
 	results = ['<div><b>Repository:</b> %s</div>' % (repo.name),
 			   '<div><b>Watchers:</b> %s</div>' % (repo.watchers)]
+        actives = plugins.load()
+        results.extend(active.get_html(repo) for active in actives)
+        print(actives)
+        print(len(actives))
 
 	results = map(Markup, results)
 	return render_template("results.html", results=results)

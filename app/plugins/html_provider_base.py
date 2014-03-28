@@ -1,6 +1,4 @@
-from yapsy.IPlugin import IPlugin
-
-class html_provider_base(IPlugin):
+class html_provider_base():
     '''
     This is a base class for simple html content provider plugins
     '''
@@ -9,7 +7,6 @@ class html_provider_base(IPlugin):
         """
         Set the basic variables.
         """
-        IPlugin.__init__(self)
         self.div = '''<div id="%s">%%s</div>''' % (self.__class__.__name__)
 
     def get_html(self, github_repo):
