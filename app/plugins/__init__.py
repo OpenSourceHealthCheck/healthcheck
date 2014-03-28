@@ -9,4 +9,5 @@ def load():
     return [is_my_code_ready(), 
             license(), 
             readme(),
+            weekly_commits(),
             busfactor()]
