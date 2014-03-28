@@ -9,10 +9,26 @@ def index():
 
 @app.route('/run', methods=['POST', 'GET'])
 def run():
-	repo = request.form['repo']
+	gh = login(token=os.environ['GITHUB_API_TOKEN'])
 
-	results = ['<div>' + repo + '</div>',
-			   '<div>Another result here</div>']
+	submitted_repo = request.form['repo']
+
+	# if 'http' in submitted_repo:
+	# 	# We've got a full Github URL
+	try:
+		splitted = submitted_repo.split('/')
+		username = splitted[-2]
+		reponame = splitted[-1]
+		repo = gh.repository(username, reponame)
+	except:
+		return "Error - Repo doesn't exist!"
+	# else:
+
+
+
+
+	results = ['<div><b>Repository:</b> %s</div>' % (repo.name),
+			   '<div><b>Watchers:</b> %s</div>' % (repo.watchers)]
 
 	results = map(Markup, results)
 	return render_template("results.html", results=results)
