@@ -1,11 +1,14 @@
+from flask import render_template
 from app import app
-
 from github3 import login
+import os
 
 
 @app.route('/')
 def index():
-	gh = login(token='9829d6638caa5fc1ad576e4e345ca266fd626d8c')
+	gh = login(token=os.environ['GITHUB_API_TOKEN'])
 	repo = gh.repository('robintw', 'Py6S')
 
 	return repo.readme().decoded
+
+	#return render_template("index.html")
