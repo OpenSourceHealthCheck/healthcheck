@@ -65,6 +65,6 @@ def run_from_url(username, reponame):
 def create_issue():
     gh = login(token=os.environ['GITHUB_API_TOKEN'])
 
-    gh.create_issue(request.form['user'], request.form['repo'], 'Add a README', body="Please add a README file to your repository.\nThis really helps to improve the sustainability of your software, and helps others pick up your code and get running with it easily.\n\n(This issue was created by the Open Source Health Checker tool at www.healthchecker.io)")
+    gh.create_issue(request.form['user'], request.form['repo'], request.form['title'], body=request.form['body'])
 
     return redirect(url_for('run_from_url', username=request.form['user'], reponame=request.form['repo']))

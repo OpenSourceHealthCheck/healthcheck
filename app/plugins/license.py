@@ -2,6 +2,7 @@ import github3
 from html_provider_base import html_provider_base
 
 class license(html_provider_base):
+
     
     def find_licenses(self, repo):
         # Get all files in the root directory of the repo
@@ -26,9 +27,20 @@ class license(html_provider_base):
         '''
         license_filename = self.find_licenses(repo)
 
+        body = "Please add a LICENSE file to your repository.\nNot having a license creates all sorts of problems, so we strongly suggest you add one.\n\n(This issue was created by the Open Source Health Checker tool at www.healthchecker.io)"
+        title = "Add a LICENSE"
+
+        button = """<form method="POST" action="/create_issue">
+        <input type="hidden" name="repo" value="%s">
+        <input type="hidden" name="user" value="%s">
+        <input type="hidden" name="body" value="%s">
+        <input type="hidden" name="title" value="%s">
+        <input type="submit" value="Add an issue"></form>""" % (repo.name, repo.owner, body, title)
+
+
         if license_filename is None:
             # No license found!
-            content = "No license found!"
+            content = "There isn't a license for this code which causes <b>major</b> problems. " + button
         else:
             # License is available, so get the content of it
             license = self.get_file(repo, license_filename).upper()
