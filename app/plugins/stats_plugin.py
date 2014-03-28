@@ -3,7 +3,7 @@ __author__ = 'clyde'
 import plotly
 from html_provider_base import html_provider_base
 
-plotly_usrn, plotly_secret = 'Clyde', "1nq387dk20"
+plotly_usrn, plotly_secret = "opensourcehealthcheck", "5qw88y2uov"
 
 class stats(html_provider_base):
 
@@ -19,8 +19,8 @@ class stats(html_provider_base):
 
         py = plotly.plotly(plotly_usrn, plotly_secret)
         py.ioff()
-        data = {'x': dataset,'type': 'bar'}
-        
+        data = {'x': dataset, 'type': 'bar'}
+
         l = {'autosize': True, 'width': 900, 'height': 600, 'showlegend': False, 'title':title}
 
         return py.plot([data], layout=l)
