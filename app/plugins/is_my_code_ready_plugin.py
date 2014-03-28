@@ -7,7 +7,7 @@ class is_my_code_ready(html_provider_base):
         '''
         Simple Implementation for testing
         '''
-        content = "%s is ready to share :)  <a href='http://shouldisharemyco.de'>Check this on ShouldIShareMyCo.de</a>" % (github_repo.name)
+        content = "%s is ready to share :)  <a href='http://shouldisharemyco.de#%s'>Check this on ShouldIShareMyCo.de</a>" % (github_repo.name,github_repo.git_url)
         html = self.div % content
         self.passes = True
 
