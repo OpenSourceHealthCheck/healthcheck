@@ -17,6 +17,9 @@ class license(html_provider_base):
     def get_file(self, repo, path):
         return repo.contents(path).decoded
 
+    def file_exists(self, repo, path):
+        return repo.contents(path) is not None
+
     def get_html(self, repo):
         '''
         Tries to find a license, and if it can then guesses what license it is
@@ -30,11 +33,11 @@ class license(html_provider_base):
             # License is available, so get the content of it
             license = self.get_file(repo, license_filename).upper()
 
-            if "GNU GENERAL PUBLIC LICENSE" in license:
-                license_type = "GPL"
-            elif "LESSER" in license:
+            if "LESSER" in license or self.file_exists(repo, 'COPYING.LESSER'):
                 license_type = "LGPL"
-            elif "MIT" in license:
+            elif "GNU GENERAL PUBLIC LICENSE" in license:
+                license_type = "GPL"
+            elif " MIT " in license:
                 license_type = "MIT"
             else:
                 license_type = None
