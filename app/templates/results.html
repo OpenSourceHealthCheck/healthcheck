@@ -29,6 +29,18 @@
             <h2 class="text-center">{{ name }}</h2>
         </div>
 
+                {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-success">
+            <ul class="flashes">
+            {% for message in messages %}
+              <li class="nobullet">{{ message }}</li>
+            {% endfor %}
+            </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+
 
 
         {% for result in results %}

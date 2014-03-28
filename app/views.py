@@ -1,4 +1,4 @@
-from flask import render_template, request, Markup, redirect, url_for
+from flask import render_template, request, Markup, redirect, url_for, flash
 from app import app
 from github3 import login
 import os
@@ -67,4 +67,5 @@ def create_issue():
 
     gh.create_issue(request.form['user'], request.form['repo'], request.form['title'], body=request.form['body'])
 
+    flash("Added issue")
     return redirect(url_for('run_from_url', username=request.form['user'], reponame=request.form['repo']))
