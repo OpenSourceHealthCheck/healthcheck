@@ -53,4 +53,4 @@ def run_from_url(username, reponame):
 			   '<div><b>Watchers:</b> %s</div>' % (repo.watchers)]
 
 	results = map(Markup, results)
-	return render_template("results.html", results=results)
+	return render_template("results.html", name=repo.name, results=results)
