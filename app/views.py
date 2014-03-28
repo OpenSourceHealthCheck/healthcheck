@@ -52,10 +52,13 @@ def run_from_url(username, reponame):
     results = []
     actives = plugins.load()
     results.extend(active.get_html(repo) for active in actives)
+    passes = []
+    passes.extend(active.get_passes() for active in actives)
     print(actives)
     print(len(actives))
 
     results = map(Markup, results)
+    results = zip(results, passes)
     return render_template("results.html", name=repo.name, results=results)
 
 @app.route('/create_issue', methods=["POST"])
