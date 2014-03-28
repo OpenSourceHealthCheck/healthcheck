@@ -29,3 +29,7 @@ input {
 .formform {
       margin-top: 5em;
 }
+
+.flashes {
+    list-style-type: none;
+}
