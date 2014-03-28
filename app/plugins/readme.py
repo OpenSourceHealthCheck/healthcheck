@@ -23,6 +23,7 @@ to the project to ask the developers to create one.\n""" + button
         else:
             # Yes readme!
             content = "Great - there's a README file here"
+            self.passes = True
             readme_contents = readme.decoded
             if "contrib" in readme_contents:
                 content += " - and it even looks like there's some contributing information!"

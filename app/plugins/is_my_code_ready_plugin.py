@@ -9,4 +9,6 @@ class is_my_code_ready(html_provider_base):
         '''
         content = '%s is ready to share :)' % github_repo.name
         html = self.div % content
+        self.passes = True
+
         return html
