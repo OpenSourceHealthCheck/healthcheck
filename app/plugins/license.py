@@ -39,6 +39,8 @@ class license(html_provider_base):
                 license_type = "GPL"
             elif " MIT " in license:
                 license_type = "MIT"
+            elif "(INCLUDING NEGLIGENCE OR OTHERWISE)" in license:
+                license_type = "BSD"
             else:
                 license_type = None
 
