@@ -1,7 +1,15 @@
-class html_provider_base():
+from yapsy import IPlugin
+
+class html_provider_base(IPlugin):
     '''
     This is a base class for simple html content provider plugins
     '''
+    
+    def __init__(self):
+        """
+        Set the basic variables.
+        """
+        self.is_activated = False
     
     def get_html(self, github_repo):
         '''
