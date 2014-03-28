@@ -1,0 +1,31 @@
+#loading, #analysing, #done {
+    display: none;
+}
+
+/* 
+ * sticky footer: http://getbootstrap.com/examples/sticky-footer/
+ * one-page bootstrap:
+ * http://www.williamghelfi.com/blog/2013/08/04/bootstrap-in-practice-a-landing-page/
+ * file button: http://www.abeautifulsite.net/blog/2013/08/whipping-file-inputs-into-shape-with-bootstrap-3/
+ */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 110px;
+    width: 100%;
+}
+
+input {
+    width: 80%;
+}
+
+.formform {
+      margin-top: 5em;
+}
