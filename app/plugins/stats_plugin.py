@@ -21,6 +21,6 @@ class stats(html_provider_base):
         py.ioff()
         data = {'x': dataset,'type': 'histogramx'}
 
-        l = {'autosize': False,'width': 600, 'height': 400, 'showlegend': False, 'title':title}
+        l = {'autosize': True, 'width': 600, 'height': 400, 'showlegend': False, 'title':title}
 
         return py.plot([data], layout=l)
