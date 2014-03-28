@@ -16,10 +16,29 @@ def run():
 	# if 'http' in submitted_repo:
 	# 	# We've got a full Github URL
 	try:
-		splitted = submitted_repo.split('/')
-		username = splitted[-2]
-		reponame = splitted[-1]
+		if ".git" in submitted_repo:
+			# We're dealing with a clone URL
+			if "git@github.com" in submitted_repo:
+				# SSH clone URL
+				splitted = submitted_repo.split(':')[1].split('/')
+				username = splitted[-2]
+				reponame = splitted[-1]
+			elif "https" in submitted_repo:
+				# HTTPS URL
+				splitted = submitted_repo.split('/')
+				username = splitted[-2]
+				reponame = splitted[-1]
+
+			reponame = reponame.replace('.git', '')
+		else:
+			splitted = submitted_repo.split('/')
+			username = splitted[-2]
+			reponame = splitted[-1]
+
+		print username, reponame
 		repo = gh.repository(username, reponame)
+		if repo is None:
+			return "Error - Repo doesn't exist!"
 	except:
 		return "Error - Repo doesn't exist!"
 	# else:
