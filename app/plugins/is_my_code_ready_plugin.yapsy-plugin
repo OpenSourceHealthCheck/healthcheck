@@ -1,7 +1,7 @@
 [Core]
 Name = Is my code ready
 Module = is_my_code_ready_plugin
-   
+
 [Documentation]
 Description = test plugin
 Author = Mark
