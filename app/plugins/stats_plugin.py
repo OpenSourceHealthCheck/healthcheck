@@ -18,6 +18,7 @@ class stats(html_provider_base):
             return {'url':'', 'filename': 'title', 'error': 'No data', 'warning': '', 'message': ''}
 
         py = plotly.plotly(plotly_usrn, plotly_secret)
+        py.ioff()
         data = {'x': dataset,'type': 'histogramx'}
 
         l = {'autosize': False,'width': 600, 'height': 400, 'showlegend': False, 'title':title}
