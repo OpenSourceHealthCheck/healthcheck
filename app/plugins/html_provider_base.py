@@ -5,6 +5,7 @@ class html_provider_base():
     
     def get_html(self, github_repo):
         '''
+        github_repo is an repository object from github3
         This needs to return a html string which is enclosed in div tags specifying the plugin name
         i.e.
         <div id="MyPlygin">
