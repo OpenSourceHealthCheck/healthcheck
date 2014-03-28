@@ -19,7 +19,7 @@ class stats(html_provider_base):
 
         py = plotly.plotly(plotly_usrn, plotly_secret)
         py.ioff()
-        data = {'x': dataset, 'type': 'bar'}
+        data = {'x': range(len(dataset)), 'y':dataset, 'type': 'bar'}
 
         l = {'autosize': True, 'width': 900, 'height': 600, 'showlegend': False, 'title':title}
 
