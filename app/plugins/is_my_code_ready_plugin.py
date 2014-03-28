@@ -1,4 +1,5 @@
 import github3
+from html_provider_base import html_provider_base
 
 class is_my_code_ready(html_provider_base):
     
@@ -6,5 +7,6 @@ class is_my_code_ready(html_provider_base):
         '''
         Simple Implementation for testing
         '''
-        html ="<div id='is_my_code_ready'>%s is ready to share :)</div>" % (github_repo.name)
+        content = '%s is ready to share :)' % github_repo.name
+        html = self.div % content
         return html
