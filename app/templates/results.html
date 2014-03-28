@@ -32,12 +32,18 @@
 
 
         {% for result in results %}
+            <div class="row">
+                <div class="col-md-8">
             {{ result[0] }}
+        </div>
+            <div class="col-md-4 passfail">
             {% if result[1] %}
                 PASS
             {% else %}
                 FAIL
             {% endif %}
+            </div>
+            </div>
         {% endfor %}
 
     </div>
