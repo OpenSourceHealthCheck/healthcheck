@@ -43,6 +43,7 @@ class license(html_provider_base):
                 license_type = None
 
             if license_type is not None:
+                self.passes = True
                 content = "Well done! This code is licensed under the %s license." % (license_type)
             else:
                 content = "Well done! This code is licensed, but we can't work out what license it is using. Is it a standard open-source licence?"
