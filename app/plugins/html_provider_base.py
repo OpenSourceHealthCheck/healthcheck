@@ -8,6 +8,7 @@ class html_provider_base():
         Set the basic variables.
         """
         self.div = '''<div id="%s">%%s</div>''' % (self.__class__.__name__)
+        self.passes = False
 
     def get_html(self, github_repo):
         '''
@@ -21,6 +22,7 @@ class html_provider_base():
     def get_passes(self):
         '''
         will be called after get_html to see if this repo passes the test for this
+        you will need to set the self.passes field in get_html
         returns a boolean
         '''
-        return False
+        return self.passes
