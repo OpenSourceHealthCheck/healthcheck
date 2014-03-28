@@ -1,11 +1,53 @@
 <html>
-<head>
-	<title>{{ name }} - Open Source Health Check</title>
-</head>
-<body>
-<h1>{{ name }}</h2>
-{% for item in results %}
-	{{ item }}
-{% endfor %}
-</body>
+    <head>
+        <title>Open Source Health Check</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta name="Description" content="Health check for open source projects">
+        <meta name="robots" content="ALL">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+        <link href="/static/style.css" rel="stylesheet" type="test/css">
+    </head>
+    <body>
+
+    <div class="container">
+    <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+
+        <div class="page-header">
+            <h1 class="text-center">Open Source Health Check</h1>
+            <h2 class="text-center">{{ name }}</h2>
+        </div>
+
+        {% for item in results %}
+            {{ item }}
+        {% endfor %}
+
+    </div>
+    </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            <hr>
+            <p class="text-muted">By <a href="https://github.com/OpenSourceHealthCheck">OpenSourceHealthCheck</a>. Read the <a href="static/legalstuff.html">legal stuff</a>.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    </body>
+
 </html>
