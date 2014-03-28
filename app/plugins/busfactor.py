@@ -1,4 +1,3 @@
-import github3
 from html_provider_base import html_provider_base
 import numpy as np
 
