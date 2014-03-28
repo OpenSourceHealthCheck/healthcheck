@@ -41,7 +41,7 @@ def run_from_post():
 	return redirect(url_for('run_from_url', username=username, reponame=reponame))
 	#return run_from_url(username, reponame)
 
-@app.route('/check/<username>/<reponame>')
+@app.route('/<username>/<reponame>')
 def run_from_url(username, reponame):
 	gh = login(token=os.environ['GITHUB_API_TOKEN'])
 
@@ -58,4 +58,4 @@ def run_from_url(username, reponame):
         print(len(actives))
 
 	results = map(Markup, results)
-	return render_template("results.html", results=results)
+	return render_template("results.html", name=repo.name, results=results)
