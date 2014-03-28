@@ -3,6 +3,15 @@
 	<title>Test page</title>
 </head>
 <body>
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
 We are working!
+
+<form method="POST" action="http://localhost:5000/run">
+	<input type="text" name="repo">
+	<input type="submit" value="Go!">
+</form>
 </body>
 </html>

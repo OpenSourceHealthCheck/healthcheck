@@ -9,7 +9,9 @@ def index():
 
 @app.route('/run', methods=['POST', 'GET'])
 def run():
-	results = ['<div>Some result here</div>',
+	repo = request.form['repo']
+
+	results = ['<div>' + repo + '</div>',
 			   '<div>Another result here</div>']
 
 	results = map(Markup, results)
