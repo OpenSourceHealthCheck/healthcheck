@@ -16,4 +16,8 @@ class weekly_commits(stats):
         content = '''<iframe id="igraph" src={fig_address} width="600" height="400" seamless="seamless" scrolling="no"></iframe>'''.format(fig_address=raw_fig_address)
 
         html = self.div % content
+
+        if any(weekly[-10:-1]):
+            self.passes = True
+
         return html

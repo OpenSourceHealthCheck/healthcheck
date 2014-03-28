@@ -29,8 +29,15 @@
             <h2 class="text-center">{{ name }}</h2>
         </div>
 
-        {% for item in results %}
-            {{ item }}
+
+
+        {% for result in results %}
+            {{ result[0] }}
+            {% if result[1] %}
+                PASS
+            {% else %}
+                FAIL
+            {% endif %}
         {% endfor %}
 
     </div>
