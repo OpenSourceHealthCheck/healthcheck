@@ -13,7 +13,7 @@ class weekly_commits(stats):
         self.fig = self.gen_bar('Weekly commits', weekly)
 
         raw_fig_address = self.fig['url']
-        content = '''<iframe id="igraph" src={fig_address} width="400" height="250" seamless="seamless" scrolling="no"></iframe>'''.format(fig_address=raw_fig_address)
+        content = '''<iframe id="igraph" src={fig_address} width="600" height="400" seamless="seamless" scrolling="no"></iframe>'''.format(fig_address=raw_fig_address)
 
         html = self.div % content
         return html
