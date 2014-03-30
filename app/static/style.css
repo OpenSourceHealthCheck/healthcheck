@@ -13,12 +13,12 @@ html {
     min-height: 100%;
 }
 body {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 #footer {
     position: absolute;
     bottom: 0;
-    height: 110px;
+    height: 80px;
     width: 100%;
 }
 
