@@ -27,7 +27,7 @@ class license(html_provider_base):
         '''
         license_filename = self.find_licenses(repo)
 
-        body = "Please add a LICENSE file to your repository.\nNot having a license creates all sorts of problems, so we strongly suggest you add one.\n\n(This issue was created by the Open Source Health Checker tool at www.healthchecker.io)"
+        body = "Please add a LICENSE file to your repository.\nNot having a license creates all sorts of problems, so we strongly suggest you add one.\n\n(This issue was created by the Open Source Health Check tool at www.healthcheck.io)"
         title = "Add a LICENSE"
 
         button = """<form method="POST" action="/create_issue">
