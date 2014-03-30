@@ -8,7 +8,7 @@ class readme(html_provider_base):
         Checks if a README file exists
         '''
 
-        body = "Please add a README file to your repository.\nThis really helps to improve the sustainability of your software, and helps others pick up your code and get running with it easily.\n\n(This issue was created by the Open Source Health Checker tool at www.healthchecker.io)"
+        body = "Please add a README file to your repository.\nThis really helps to improve the sustainability of your software, and helps others pick up your code and get running with it easily.\n\n(This issue was created by the Open Source Health Check tool at www.healthcheck.io)"
         title = "Add a README"
 
         button = """<form method="POST" action="/create_issue">
