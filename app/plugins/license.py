@@ -53,6 +53,15 @@ class license(html_provider_base):
                 license_type = "MIT"
             elif "(INCLUDING NEGLIGENCE OR OTHERWISE)" in license:
                 license_type = "BSD"
+            elif "Apache" in license:
+                if "2.0" in license:
+                    license_type = "Apache 2.0"
+                elif "1.1" in license:
+                    license_type = "Apache 1.1"
+                elif "1.0" in license:
+                    license_type = "Apache 1.0"
+                else:
+                    license_type = "Apache"
             else:
                 license_type = None
 
