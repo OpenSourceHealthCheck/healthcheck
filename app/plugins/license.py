@@ -1,5 +1,5 @@
 import github3
-from html_provider_base import html_provider_base
+from app.plugins.html_provider_base import html_provider_base
 
 class license(html_provider_base):
 
@@ -10,7 +10,13 @@ class license(html_provider_base):
 
         possible_filenames = ['COPYING', 'LICENSE']
 
-        for name, contents in root_files.iteritems():
+        try:
+            root_files_iter = root_files.iteritems()
+        except AttributeError:
+            # python 3!
+            root_files_iter = root_files.items()
+
+        for name, contents in root_files_iter:
             for poss_name in possible_filenames:
                 if poss_name in name.upper():
                     return name
@@ -43,7 +49,7 @@ class license(html_provider_base):
             content = "There isn't a license for this code which causes <b>major</b> problems. " + button
         else:
             # License is available, so get the content of it
-            license = self.get_file(repo, license_filename).upper()
+            license = self.get_file(repo, license_filename).upper().decode()
 
             if "LESSER" in license or self.file_exists(repo, 'COPYING.LESSER'):
                 license_type = "LGPL"

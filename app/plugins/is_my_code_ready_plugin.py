@@ -1,5 +1,5 @@
 import github3
-from html_provider_base import html_provider_base
+from app.plugins.html_provider_base import html_provider_base
 
 class is_my_code_ready(html_provider_base):
     

@@ -1,3 +1,3 @@
-from app import app
-app.run(debug=True)
+import app
 
+app.healthcheck.healthcheck.run(debug=True)

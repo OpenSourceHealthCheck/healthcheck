@@ -1,5 +1,5 @@
 import github3
-from html_provider_base import html_provider_base
+from app.plugins.html_provider_base import html_provider_base
 
 class readme(html_provider_base):
     
@@ -30,7 +30,7 @@ This is essential to make it easy for other people to use your code. """ + butto
             content = "Great - there's a README file here"
             self.passes = True
             readme_contents = readme.decoded
-            if "contrib" in readme_contents:
+            if "contrib" in readme_contents.decode():
                 content += " - and it even looks like there's some contributing information!"
 
         html = self.div % content
