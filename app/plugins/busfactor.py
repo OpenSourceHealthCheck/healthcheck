@@ -1,10 +1,9 @@
-from app.plugins.html_provider_base import html_provider_base
+import app.utils.html_provider as html_provider
 import numpy as np
 
-class busfactor(html_provider_base):
-    
-    def __init__(self):
-        html_provider_base.__init__(self)
+class busfactor(html_provider.html_provider_base):
+
+    priority = 10
     
     def get_html(self, repo):
         '''

@@ -1,0 +1,6 @@
+[Core]
+Name = license
+Module = license
+
+[Documentation]
+Website = http://healthcheck.io

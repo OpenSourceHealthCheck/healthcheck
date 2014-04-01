@@ -1,0 +1,6 @@
+[Core]
+Name = weekly commits
+Module = weekly_commits
+
+[Documentation]
+Website = http://healthcheck.io

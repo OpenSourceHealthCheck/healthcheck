@@ -1,8 +1,10 @@
 __author__ = 'clyde'
 
-from app.plugins.stats_plugin import stats
+import app.utils.stats_helper as stats_helper
 
-class weekly_commits(stats):
+class weekly_commits(stats_helper.stats):
+
+    priority =  5
 
     def get_html(self, github_repo):
         '''

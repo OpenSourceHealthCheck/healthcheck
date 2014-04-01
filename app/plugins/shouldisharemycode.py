@@ -1,7 +1,8 @@
-import github3
-from app.plugins.html_provider_base import html_provider_base
+import app.utils.html_provider as html_provider
 
-class is_my_code_ready(html_provider_base):
+class is_my_code_ready(html_provider.html_provider_base):
+
+    priority =  25
     
     def get_html(self, github_repo):
         '''

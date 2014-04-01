@@ -1,11 +1,11 @@
 __author__ = 'clyde'
 
 import plotly
-from app.plugins.html_provider_base import html_provider_base
+import app.utils.html_provider as html_provider
 
 plotly_usrn, plotly_secret = "opensourcehealthcheck", "5qw88y2uov"
 
-class stats(html_provider_base):
+class stats(html_provider.html_provider_base):
 
     def gen_bar(self, title, dataset):
         """Generates a plotly barchart from a dataset

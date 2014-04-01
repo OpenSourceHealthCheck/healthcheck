@@ -1,0 +1,6 @@
+[Core]
+Name = bus factor
+Module = busfactor
+
+[Documentation]
+Website = http://healthcheck.io

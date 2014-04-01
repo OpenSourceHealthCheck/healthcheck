@@ -1,0 +1,6 @@
+[Core]
+Name = Should I share my code?
+Module = shouldisharemycode
+
+[Documentation]
+Website = http://healthcheck.io
