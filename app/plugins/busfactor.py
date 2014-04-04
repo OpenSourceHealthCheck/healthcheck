@@ -17,7 +17,7 @@ class busfactor(html_provider_base):
             commits.append(sum([w['c'] for w in con.weeks]));
 
         comarray = np.array(commits)
-        useful = (comarray > comarray.mean())
+        useful = (comarray >= comarray.mean())
         busfactor = useful.sum()
         content = "The <a href='http://en.wikipedia.org/wiki/Bus_factor'>bus factor</a> for this code is approximately %i over all time<br>" %(busfactor)
         
