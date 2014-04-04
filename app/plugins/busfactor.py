@@ -22,7 +22,7 @@ class busfactor(html_provider_base):
         content = "The <a href='http://en.wikipedia.org/wiki/Bus_factor'>bus factor</a> for this code is approximately %i over all time<br>" %(busfactor)
         
         comarray = np.array(commits)[0:52]
-        useful = (comarray > comarray.mean())
+        useful = (comarray >= comarray.mean())
         busfactor = useful.sum()
         
         content += "The bus factor in the last year is approximately %i" % (busfactor)
