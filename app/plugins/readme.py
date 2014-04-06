@@ -30,9 +30,6 @@ This is essential to make it easy for other people to use your code. """ + butto
             # Yes readme!
             content = "Great - there's a README file here"
             self.passes = True
-            readme_contents = readme.decoded
-            if "contrib" in readme_contents.decode():
-                content += " - and it even looks like there's some contributing information!"
 
         html = self.div % content
         return html
