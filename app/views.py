@@ -1,14 +1,14 @@
 from flask import render_template, request, Markup, redirect, url_for, flash
-from app import app
+from app.healthcheck import healthcheck
 from github3 import login
 import os
-import plugins
+import app.plugins
 
-@app.route('/')
+@healthcheck.route('/')
 def index():
     return render_template("index.html")
 
-@app.route('/run', methods=['POST', 'GET'])
+@healthcheck.route('/run', methods=['POST', 'GET'])
 def run_from_post():
     submitted_repo = request.form['repo']
 
@@ -34,14 +34,14 @@ def run_from_post():
             username = splitted[-2]
             reponame = splitted[-1]
 
-        print username, reponame
+        print(username, reponame)
     except:
         return "Error - Repo doesn't exist!"
     
     return redirect(url_for('run_from_url', username=username, reponame=reponame))
     #return run_from_url(username, reponame)
 
-@app.route('/<username>/<reponame>')
+@healthcheck.route('/<username>/<reponame>')
 def run_from_url(username, reponame):
     gh = login(token=os.environ['GITHUB_API_TOKEN'])
 
@@ -49,19 +49,15 @@ def run_from_url(username, reponame):
     if repo is None:
         return "Error - Repo doesn't exist!"
 
-    results = []
-    actives = plugins.load()
-    results.extend(active.get_html(repo) for active in actives)
-    passes = []
-    passes.extend(active.get_passes() for active in actives)
-    print(actives)
-    print(len(actives))
+    actives = app.plugins.load()
+    results = [active.get_html(repo) for active in actives]
+    passes = [active.get_passes() for active in actives]
 
     results = map(Markup, results)
     results = zip(results, passes)
     return render_template("results.html", name=repo.name, results=results)
 
-@app.route('/create_issue', methods=["POST"])
+@healthcheck.route('/create_issue', methods=["POST"])
 def create_issue():
     gh = login(token=os.environ['GITHUB_API_TOKEN'])
 

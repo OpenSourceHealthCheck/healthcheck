@@ -1,6 +1,6 @@
 __author__ = 'clyde'
 
-from stats_plugin import stats
+from app.plugins.stats_plugin import stats
 
 class weekly_commits(stats):
 

@@ -1,4 +1,4 @@
-from html_provider_base import html_provider_base
+from app.plugins.html_provider_base import html_provider_base
 import numpy as np
 
 class busfactor(html_provider_base):
