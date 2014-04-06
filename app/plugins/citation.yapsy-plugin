@@ -1,0 +1,6 @@
+[Core]
+Name = citation
+Module = citation
+
+[Documentation]
+Website = http://healthcheck.io
