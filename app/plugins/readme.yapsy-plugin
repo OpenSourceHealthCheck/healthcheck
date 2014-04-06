@@ -1,0 +1,6 @@
+[Core]
+Name = README
+Module = readme
+
+[Documentation]
+Website = http://healthcheck.io

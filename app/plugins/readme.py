@@ -1,7 +1,8 @@
-import github3
-from app.plugins.html_provider_base import html_provider_base
+import app.utils.html_provider as html_provider
 
-class readme(html_provider_base):
+class readme(html_provider.html_provider_base):
+
+    priority =  15
     
     def get_html(self, repo):
         '''
@@ -35,3 +36,4 @@ This is essential to make it easy for other people to use your code. """ + butto
 
         html = self.div % content
         return html
+

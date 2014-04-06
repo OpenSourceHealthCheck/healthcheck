@@ -1,7 +1,14 @@
-class html_provider_base():
+import yapsy.IPlugin
+
+class html_provider_base(yapsy.IPlugin.IPlugin):
     '''
     This is a base class for simple html content provider plugins
     '''
+
+    # where in the results page the element should come (higher priority means
+    # closer to the top).  This is because yapsy does not return plugins in
+    # a fixed order.
+    priority = 0
     
     def __init__(self):
         """
@@ -26,3 +33,7 @@ class html_provider_base():
         returns a boolean
         '''
         return self.passes
+
+    def __lt__(self, other):
+
+        return self.priority < other.priority

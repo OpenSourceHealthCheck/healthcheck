@@ -1,9 +1,9 @@
-import github3
-from app.plugins.html_provider_base import html_provider_base
+import app.utils.html_provider as html_provider
 
-class license(html_provider_base):
-
+class license(html_provider.html_provider_base):
     
+    priority = 20
+
     def find_licenses(self, repo):
         # Get all files in the root directory of the repo
         root_files = repo.contents('/')
